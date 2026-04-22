@@ -11,6 +11,10 @@
       box-sizing: border-box;
       font-family: system-ui, -apple-system, sans-serif;
     }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
     body {
       background: #fafafa;
       color: #222;
@@ -77,9 +81,9 @@
       border-radius: 99px;
       text-decoration: none;
       font-size: 14px;
+      white-space: nowrap;
     }
 
-    /* 新增：刷新按钮样式 */
     .refresh-btn {
       padding: 8px 18px;
       background: #000;
@@ -89,6 +93,51 @@
       cursor: pointer;
       margin-bottom: 20px;
       font-size: 14px;
+    }
+
+    /* ====================== */
+    /* 手机端全适配优化 */
+    /* ====================== */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        gap: 18px;
+        padding: 25px 15px;
+        text-align: center;
+      }
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 14px;
+      }
+      .nav-menu a {
+        margin-left: 0;
+        font-size: 14px;
+      }
+      .section-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .tour-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 20px;
+      }
+      .tour-btn {
+        width: 100%;
+      }
+      .tour-btn a {
+        display: inline-block;
+        text-align: center;
+      }
+      .tour-info .date {
+        font-size: 16px;
+      }
+      .tour-info .event {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -107,20 +156,13 @@
   <div class="tour-container">
     <div class="section-title">近期行程</div>
     
-    <!-- 刷新按钮 -->
     <button class="refresh-btn" onclick="renderTour()">手动刷新行程</button>
 
-    <!-- 行程列表 -->
     <div class="tour-list" id="tourList">
-      <!-- 内容由JS自动生成 -->
     </div>
   </div>
 
   <script>
-    // ==============================================
-    // 在这里修改你的行程！！！
-    // 直接增删改下面的数组，页面会自动更新
-    // ==============================================
     function getTourData() {
       return [
         {
@@ -138,7 +180,7 @@
           event: "AK刘彰 个人巡演 · 南京站",
           link: "https://weibo.com/5694332362/5287915089564028"
         },
-     {
+        {
           date: "2026-04-25",
           event: "AK刘彰 个人巡演 · 武汉站",
           link: "https://weibo.com/5694332362/5290449860035304"
@@ -151,7 +193,6 @@
       ];
     }
 
-    // 渲染行程到页面
     function renderTour() {
       const data = getTourData();
       const list = document.getElementById("tourList");
@@ -174,11 +215,8 @@
       list.innerHTML = html;
     }
 
-    // 页面打开自动加载
     window.onload = function () {
       renderTour();
-      
-      // 每30秒自动刷新一次行程
       setInterval(renderTour, 30000);
     }
   </script>

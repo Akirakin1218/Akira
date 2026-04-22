@@ -11,6 +11,10 @@
       box-sizing: border-box;
       font-family: system-ui, -apple-system, sans-serif;
     }
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
     body {
       background: #fafafa;
       color: #222;
@@ -109,6 +113,50 @@
       color: #888;
       padding-left: 136px;
     }
+
+    /* ====================== */
+    /* 手机端全适配优化 */
+    /* ====================== */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        gap: 18px;
+        padding: 25px 15px;
+        text-align: center;
+      }
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 14px;
+      }
+      .nav-menu a {
+        margin-left: 0;
+        font-size: 14px;
+      }
+      .section-title {
+        font-size: 20px;
+        margin: 35px 0 20px;
+      }
+      .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .work-card {
+        padding: 14px;
+      }
+      .show-list {
+        padding: 20px 16px;
+      }
+      .show-date {
+        min-width: 100px;
+        font-size: 12px;
+      }
+      .show-desc {
+        padding-left: 0;
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -124,7 +172,6 @@
   </div>
 
   <div class="works-container">
-    <!-- 原有音乐作品（完全不动） -->
     <div class="section-title">精选音乐作品</div>
     <div class="works-grid">
 
@@ -226,13 +273,9 @@
 
     </div>
 
-    <!-- ====================== -->
-    <!-- 全部综艺（已追加你要的3个） -->
-    <!-- ====================== -->
     <div class="section-title">综艺作品</div>
     <div class="show-list">
 
-      <!-- 🌟 你追加的核心综艺 🌟 -->
       <div class="show-item">
         <div class="show-date">2020-11-01</div>
         <div class="show-name">说唱新世代</div>
@@ -249,84 +292,69 @@
         <div class="show-desc">以INTO1成员身份正式出道</div>
       </div>
 
-      <!-- 你原来的全部综艺 -->
       <div class="show-item">
         <div class="show-date">2026-03-24</div>
         <div class="show-name">初入职场·金融季</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2026-03-03</div>
         <div class="show-name">三江汇湾·碧海同舟——2026大湾区元宵晚会</div>
         <div class="show-desc">演唱原创歌曲《赤马》</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2025-08-08</div>
         <div class="show-name">披荆斩棘2025</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2025-01-29</div>
         <div class="show-name">2025年海南省春节联欢晚会</div>
         <div class="show-desc">表演节目《ALOHA》</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2024-08-13</div>
         <div class="show-name">超新星运动会第五季</div>
         <div class="show-desc">加入在一起一定队，参加篮球三人球男子组、射箭男子个人、舞蹈运动街舞crew battle、电子竞技和平精英、游泳男子50米比赛</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2024-06-09</div>
         <div class="show-name">永远22!2024bilibili毕业歌会</div>
         <div class="show-desc">演唱《快乐崇拜2024》</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2023-07-07</div>
         <div class="show-name">未来中国</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2023-05-12</div>
         <div class="show-name">奔跑吧第十一季</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2022-12-30</div>
         <div class="show-name">朝阳打歌中心</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2022-12-25 至 2022-12-27</div>
         <div class="show-name">深圳天空音乐节</div>
         <div class="show-desc">特邀明星学长</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2022-12-17</div>
         <div class="show-name">来看我们的演唱会</div>
         <div class="show-desc">决赛live夜特邀热场嘉宾</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2022-08-09</div>
         <div class="show-name">INTO1星空万里</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2022-06-11</div>
         <div class="show-name">战至巅峰</div>
         <div class="show-desc">嘉宾</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2021-06-22</div>
         <div class="show-name">拜托了冰箱 轰趴季</div>
       </div>
-
       <div class="show-item">
         <div class="show-date">2021-04-01</div>
         <div class="show-name">营人进入异次元会变成笨蛋吗</div>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>音乐作品 | AK 刘彰</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background: #fafafa;
+      color: #222;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .nav-menu a {
+      margin-left: 30px;
+      color: #333;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .nav-menu a.active {
+      font-weight: bold;
+      color: #000;
+    }
+    .works-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 50px 0 30px;
+    }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .work-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .work-cover {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .work-name {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .work-info {
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* 综艺作品样式 */
+    .show-list {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .show-item {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 14px 0;
+      border-bottom: 1px solid #f1f1f1;
+      align-items: center;
+      gap: 16px;
+    }
+    .show-item:last-child {
+      border-bottom: none;
+    }
+    .show-date {
+      min-width: 120px;
+      color: #666;
+      font-size: 14px;
+    }
+    .show-name {
+      flex: 1;
+      font-weight: 500;
+    }
+    .show-desc {
+      width: 100%;
+      margin-top: 4px;
+      font-size: 13px;
+      color: #888;
+      padding-left: 136px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="logo">AK LIUZHANG</div>
+    <div class="nav-menu">
+      <a href="index.html">首页</a>
+      <a href="profile.html">档案</a>
+      <a href="works.html" class="active">音乐作品</a>
+      <a href="tour.html">行程活动</a>
+      <a href="https://m.weibo.cn/" target="_blank">周边</a>
+    </div>
+  </div>
+
+  <div class="works-container">
+    <!-- 原有音乐作品（完全不动） -->
+    <div class="section-title">精选音乐作品</div>
+    <div class="works-grid">
+
+      <div class="work-card">
+        <img class="work-cover" src="https://p1.music.126.net/XDY9JgYPDwTmpn01CMIOHg==/109951172212841826.jpg" alt="封面">
+        <div class="work-name">致命爱人</div>
+        <div class="work-info">原创EP致命爱人主打曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/XDY9JgYPDwTmpn01CMIOHg==/109951172212841826.jpg?param=130y130" alt="封面">
+        <div class="work-name">纠（feat.黄誉博）</div>
+        <div class="work-info">原创EP致命爱人收录曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/XDY9JgYPDwTmpn01CMIOHg==/109951172212841826.jpg?param=130y130" alt="封面">
+        <div class="work-name">玻璃</div>
+        <div class="work-info">原创EP致命爱人收录曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/XDY9JgYPDwTmpn01CMIOHg==/109951172212841826.jpg?param=130y130" alt="封面">
+        <div class="work-name"> Love Myself Again</div>
+        <div class="work-info">原创EP致命爱人收录曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="https://p1.music.126.net/WgMPOeadx0HwqHoRx7hMZA==/109951169685268027.jpg" alt="封面">
+        <div class="work-name">Surprising Click</div>
+        <div class="work-info">时光代理人企划曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="https://p1.music.126.net/HEgtPCI_kdBTkMsamjwOhw==/109951171963045987.jpg" alt="封面">
+        <div class="work-name">果实</div>
+        <div class="work-info">个人原创单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="https://p1.music.126.net/n-6lVJxkRR_4z6ul-KC1Sw==/109951169908258451.jpg" alt="封面">
+        <div class="work-name">葱烧鸡腿肉</div>
+        <div class="work-info">合作说唱单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/XDY9JgYPDwTmpn01CMIOHg==/109951172212841826.jpg?param=130y130" alt="封面">
+        <div class="work-name">潘洛斯</div>
+        <div class="work-info">原创EP致命爱人收录曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/2D4xiqb5zkm_8kpUGSipnA==/109951169835812708.jpg?param=130y130" alt="封面">
+        <div class="work-name">ALOHA</div>
+        <div class="work-info">原创个人单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/EEYrg2Co6DsqmWcaCJeNSg==/109951172135633125.jpg?param=130y130" alt="封面">
+        <div class="work-name">起舞</div>
+        <div class="work-info">原创个人单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/z_7Q5MiL6q-SdiUFCbPkzQ==/109951170193821637.jpg?param=130y130" alt="封面">
+        <div class="work-name">荒唐</div>
+        <div class="work-info">原创个人单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/OblkausIkKnNV6jc1IFarQ==/109951171643095103.jpg?param=130y130" alt="封面">
+        <div class="work-name">半碗热情</div>
+        <div class="work-info">原创个人单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/oh2UpWJvj0SpkryAAYr45g==/109951170483350190.jpg?param=130y130" alt="封面">
+        <div class="work-name">Back Off</div>
+        <div class="work-info">原创个人单曲</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/O7rpTo-L3EQlEKYOPSP7Wg==/109951172551353369.jpg?param=130y130" alt="封面">
+        <div class="work-name">飞鸟</div>
+        <div class="work-info">说唱新世代</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p1.music.126.net/O7rpTo-L3EQlEKYOPSP7Wg==/109951172551353369.jpg?param=130y130" alt="封面">
+        <div class="work-name">Love me love me</div>
+        <div class="work-info">说唱新世代</div>
+      </div>
+
+      <div class="work-card">
+        <img class="work-cover" src="http://p2.music.126.net/DkvqyDbJrgH79biocTGoxQ==/109951171701628869.jpg?param=130y130" alt="封面">
+        <div class="work-name">Scar</div>
+        <div class="work-info">TV动画《凸变英雄X》梁龙篇插曲 原创</div>
+      </div>
+
+    </div>
+
+    <!-- ====================== -->
+    <!-- 全部综艺（已追加你要的3个） -->
+    <!-- ====================== -->
+    <div class="section-title">综艺作品</div>
+    <div class="show-list">
+
+      <!-- 🌟 你追加的核心综艺 🌟 -->
+      <div class="show-item">
+        <div class="show-date">2020-11-01</div>
+        <div class="show-name">说唱新世代</div>
+        <div class="show-desc">热门选手，代表作《反路》《峰顶》</div>
+      </div>
+      <div class="show-item">
+        <div class="show-date">2020-12-01</div>
+        <div class="show-name">造浪</div>
+        <div class="show-desc">说唱新世代衍生团综</div>
+      </div>
+      <div class="show-item">
+        <div class="show-date">2021-02-17</div>
+        <div class="show-name">创造营2021</div>
+        <div class="show-desc">以INTO1成员身份正式出道</div>
+      </div>
+
+      <!-- 你原来的全部综艺 -->
+      <div class="show-item">
+        <div class="show-date">2026-03-24</div>
+        <div class="show-name">初入职场·金融季</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2026-03-03</div>
+        <div class="show-name">三江汇湾·碧海同舟——2026大湾区元宵晚会</div>
+        <div class="show-desc">演唱原创歌曲《赤马》</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2025-08-08</div>
+        <div class="show-name">披荆斩棘2025</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2025-01-29</div>
+        <div class="show-name">2025年海南省春节联欢晚会</div>
+        <div class="show-desc">表演节目《ALOHA》</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2024-08-13</div>
+        <div class="show-name">超新星运动会第五季</div>
+        <div class="show-desc">加入在一起一定队，参加篮球三人球男子组、射箭男子个人、舞蹈运动街舞crew battle、电子竞技和平精英、游泳男子50米比赛</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2024-06-09</div>
+        <div class="show-name">永远22!2024bilibili毕业歌会</div>
+        <div class="show-desc">演唱《快乐崇拜2024》</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2023-07-07</div>
+        <div class="show-name">未来中国</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2023-05-12</div>
+        <div class="show-name">奔跑吧第十一季</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2022-12-30</div>
+        <div class="show-name">朝阳打歌中心</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2022-12-25 至 2022-12-27</div>
+        <div class="show-name">深圳天空音乐节</div>
+        <div class="show-desc">特邀明星学长</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2022-12-17</div>
+        <div class="show-name">来看我们的演唱会</div>
+        <div class="show-desc">决赛live夜特邀热场嘉宾</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2022-08-09</div>
+        <div class="show-name">INTO1星空万里</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2022-06-11</div>
+        <div class="show-name">战至巅峰</div>
+        <div class="show-desc">嘉宾</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2021-06-22</div>
+        <div class="show-name">拜托了冰箱 轰趴季</div>
+      </div>
+
+      <div class="show-item">
+        <div class="show-date">2021-04-01</div>
+        <div class="show-name">营人进入异次元会变成笨蛋吗</div>
+        <div class="show-desc">《创造营2021》衍生节目，沉浸式游戏类真人秀</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

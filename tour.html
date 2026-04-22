@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行程活动 | AK 刘彰</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    body {
+      background: #fafafa;
+      color: #222;
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 20px;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .nav-menu a {
+      margin-left: 30px;
+      color: #333;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .nav-menu a.active {
+      font-weight: bold;
+      color: #000;
+    }
+    .tour-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+    .tour-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .tour-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tour-info .date {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .tour-info .event {
+      color: #555;
+    }
+    .tour-btn a {
+      padding: 8px 20px;
+      background: #222;
+      color: #fff;
+      border-radius: 99px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    /* 新增：刷新按钮样式 */
+    .refresh-btn {
+      padding: 8px 18px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 99px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="logo">AK LIUZHANG</div>
+    <div class="nav-menu">
+      <a href="index.html">首页</a>
+      <a href="profile.html">档案</a>
+      <a href="works.html">音乐作品</a>
+      <a href="tour.html" class="active">行程活动</a>
+      <a href="https://m.weibo.cn/" target="_blank">周边</a>
+    </div>
+  </div>
+
+  <div class="tour-container">
+    <div class="section-title">近期行程</div>
+    
+    <!-- 刷新按钮 -->
+    <button class="refresh-btn" onclick="renderTour()">手动刷新行程</button>
+
+    <!-- 行程列表 -->
+    <div class="tour-list" id="tourList">
+      <!-- 内容由JS自动生成 -->
+    </div>
+  </div>
+
+  <script>
+    // ==============================================
+    // 在这里修改你的行程！！！
+    // 直接增删改下面的数组，页面会自动更新
+    // ==============================================
+    function getTourData() {
+      return [
+        {
+          date: "2026-05-24",
+          event: "AK刘彰 N次方扬州枣林湾音乐节",
+          link: "https://weibo.com/4004901578/5289491100861401"
+        },
+        {
+          date: "2026-05-23",
+          event: "AK刘彰 镇江蒲公英生活音乐节",
+          link: "https://weibo.com/7986447003/5287663495283075"
+        },
+        {
+          date: "2026-05-16",
+          event: "AK刘彰 个人巡演 · 南京站",
+          link: "https://weibo.com/5694332362/5287915089564028"
+        },
+     {
+          date: "2026-04-25",
+          event: "AK刘彰 个人巡演 · 武汉站",
+          link: "https://weibo.com/5694332362/5290449860035304"
+        },
+        {
+          date: "持续更新",
+          event: "AK刘彰 个人巡演 / 音乐节演出",
+          link: "https://weibo.com/u/5464355430"
+        }
+      ];
+    }
+
+    // 渲染行程到页面
+    function renderTour() {
+      const data = getTourData();
+      const list = document.getElementById("tourList");
+      
+      let html = "";
+      data.forEach(item => {
+        html += `
+        <div class="tour-card">
+          <div class="tour-info">
+            <div class="date">${item.date}</div>
+            <div class="event">${item.event}</div>
+          </div>
+          <div class="tour-btn">
+            <a href="${item.link}" target="_blank">查看官方动态</a>
+          </div>
+        </div>
+        `;
+      });
+      
+      list.innerHTML = html;
+    }
+
+    // 页面打开自动加载
+    window.onload = function () {
+      renderTour();
+      
+      // 每30秒自动刷新一次行程
+      setInterval(renderTour, 30000);
+    }
+  </script>
+</body>
+</html>

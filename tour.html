@@ -1,72 +1,117 @@
-// 演出数据
-function getTourData() {
-  return [
-    {
-      date: "2026-06-10",
-      event: "AK刘彰 长春向北银河左岸音乐节",
-      link: "https://weibo.com/u/5464355430"
-    },
-    {
-      date: "2026-05-24",
-      event: "AK刘彰 N次方扬州枣林湾音乐节",
-      link: "https://weibo.com/4004901578/5289491100861401"
-    },
-    {
-      date: "2026-05-23",
-      event: "AK刘彰 镇江蒲公英生活音乐节",
-      link: "https://weibo.com/7986447003/5287663495283075"
-    },
-    {
-      date: "2026-05-16",
-      event: "AK刘彰 个人巡演 · 南京站",
-      link: "https://weibo.com/5694332362/5287915089564028"
-    },
-    {
-      date: "2026-04-25",
-      event: "AK刘彰 个人巡演 · 武汉站",
-      link: "https://weibo.com/5694332362/5290449860035304"
-    },
-    {
-      date: "持续更新",
-      event: "AK刘彰 个人巡演 / 音乐节演出",
-      link: "https://weibo.com/u/5464355430"
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AK刘彰 演出行程</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  ];
-}
+    body {
+      font-family: "Microsoft YaHei", sans-serif;
+      background: #f7f8fa;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .title {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 25px;
+      color: #222;
+    }
+    .tour-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .tour-info {
+      flex: 1;
+    }
+    .date {
+      font-size: 15px;
+      color: #999;
+      margin-bottom: 6px;
+    }
+    .event {
+      font-size: 17px;
+      color: #333;
+      font-weight: 500;
+    }
+    .tour-btn a {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #5277ff;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .tour-btn a:hover {
+      background: #3c66f2;
+    }
+  </style>
+</head>
 
-// 渲染演出列表（已修复所有 bug）
-function renderTour() {
-  const data = getTourData();
-  const list = document.getElementById("tourList");
-  
-  // 安全判断：不存在就退出
-  if (!list) return;
+<body>
+  <div class="container">
+    <h2 class="title">AK刘彰 演出行程</h2>
+    <!-- 行程列表会渲染在这里 -->
+    <div id="tourList"></div>
+  </div>
 
-  // 每次先清空，避免无限叠加
-  let html = "";
+  <script>
+    // 演出数据
+    function getTourData() {
+      return [
+        { date: "2026-06-10", event: "AK刘彰 长春向北银河左岸音乐节", link: "https://weibo.com/u/5464355430" },
+        { date: "2026-05-24", event: "AK刘彰 N次方扬州枣林湾音乐节", link: "https://weibo.com/4004901578/5289491100861401" },
+        { date: "2026-05-23", event: "AK刘彰 镇江蒲公英生活音乐节", link: "https://weibo.com/7986447003/5287663495283075" },
+        { date: "2026-05-16", event: "AK刘彰 个人巡演 · 南京站", link: "https://weibo.com/5694332362/5287915089564028" },
+        { date: "2026-04-25", event: "AK刘彰 个人巡演 · 武汉站", link: "https://weibo.com/5694332362/5290449860035304" },
+        { date: "持续更新", event: "AK刘彰 个人巡演 / 音乐节演出", link: "https://weibo.com/u/5464355430" }
+      ];
+    }
 
-  data.forEach(item => {
-    html += `
-    <div class="tour-card">
-      <div class="tour-info">
-        <div class="date">${item.date}</div>
-        <div class="event">${item.event}</div>
-      </div>
-      <div class="tour-btn">
-        <a href="${item.link}" target="_blank">查看官方动态</a>
-      </div>
-    </div>
-    `;
-  });
+    // 渲染列表
+    function renderTour() {
+      const data = getTourData();
+      const list = document.getElementById("tourList");
+      if (!list) return;
 
-  list.innerHTML = html;
-}
+      let html = "";
+      data.forEach(item => {
+        html += `
+        <div class="tour-card">
+          <div class="tour-info">
+            <div class="date">${item.date}</div>
+            <div class="event">${item.event}</div>
+          </div>
+          <div class="tour-btn">
+            <a href="${item.link}" target="_blank">查看官方动态</a>
+          </div>
+        </div>
+        `;
+      });
 
-// 页面加载 + 定时刷新（修复定时器问题）
-window.onload = function () {
-  renderTour();
-  
-  // 只保留一个定时器，避免重复创建
-  if (window.tourTimer) clearInterval(window.tourTimer);
-  window.tourTimer = setInterval(renderTour, 30000);
-}
+      list.innerHTML = html;
+    }
+
+    // 初始化
+    window.onload = function () {
+      renderTour();
+      if (window.tourTimer) clearInterval(window.tourTimer);
+      window.tourTimer = setInterval(renderTour, 30000);
+    }
+  </script>
+</body>
+</html>

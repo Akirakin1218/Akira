@@ -1,61 +1,72 @@
-    function getTourData() {
-      return [
-        {
-          date: "2026-06-10",
-          event: "AK刘彰 长春向北银河左岸音乐节",
-          link: "https://weibo.com/u/5464355430"
-        },
-        {
-          date: "2026-05-24",
-          event: "AK刘彰 N次方扬州枣林湾音乐节",
-          link: "https://weibo.com/4004901578/5289491100861401"
-        },
-        {
-          date: "2026-05-23",
-          event: "AK刘彰 镇江蒲公英生活音乐节",
-          link: "https://weibo.com/7986447003/5287663495283075"
-        },
-        {
-          date: "2026-05-16",
-          event: "AK刘彰 个人巡演 · 南京站",
-          link: "https://weibo.com/5694332362/5287915089564028"
-        },
-        {
-          date: "2026-04-25",
-          event: "AK刘彰 个人巡演 · 武汉站",
-          link: "https://weibo.com/5694332362/5290449860035304"
-        },
-        {
-          date: "持续更新",
-          event: "AK刘彰 个人巡演 / 音乐节演出",
-          link: "https://weibo.com/u/5464355430"
-        }
-      ];
+// 演出数据
+function getTourData() {
+  return [
+    {
+      date: "2026-06-10",
+      event: "AK刘彰 长春向北银河左岸音乐节",
+      link: "https://weibo.com/u/5464355430"
+    },
+    {
+      date: "2026-05-24",
+      event: "AK刘彰 N次方扬州枣林湾音乐节",
+      link: "https://weibo.com/4004901578/5289491100861401"
+    },
+    {
+      date: "2026-05-23",
+      event: "AK刘彰 镇江蒲公英生活音乐节",
+      link: "https://weibo.com/7986447003/5287663495283075"
+    },
+    {
+      date: "2026-05-16",
+      event: "AK刘彰 个人巡演 · 南京站",
+      link: "https://weibo.com/5694332362/5287915089564028"
+    },
+    {
+      date: "2026-04-25",
+      event: "AK刘彰 个人巡演 · 武汉站",
+      link: "https://weibo.com/5694332362/5290449860035304"
+    },
+    {
+      date: "持续更新",
+      event: "AK刘彰 个人巡演 / 音乐节演出",
+      link: "https://weibo.com/u/5464355430"
     }
+  ];
+}
 
-    function renderTour() {
-      const data = getTourData();
-      const list = document.getElementById("tourList");
-      
-      let html = "";
-      data.forEach(item => {
-        html += `
-        <div class="tour-card">
-          <div class="tour-info">
-            <div class="date">${item.date}</div>
-            <div class="event">${item.event}</div>
-          </div>
-          <div class="tour-btn">
-            <a href="${item.link}" target="_blank">查看官方动态</a>
-          </div>
-        </div>
-        `;
-      });
-      
-      list.innerHTML = html;
-    }
+// 渲染演出列表（已修复所有 bug）
+function renderTour() {
+  const data = getTourData();
+  const list = document.getElementById("tourList");
+  
+  // 安全判断：不存在就退出
+  if (!list) return;
 
-    window.onload = function () {
-      renderTour();
-      setInterval(renderTour, 30000);
-    }
+  // 每次先清空，避免无限叠加
+  let html = "";
+
+  data.forEach(item => {
+    html += `
+    <div class="tour-card">
+      <div class="tour-info">
+        <div class="date">${item.date}</div>
+        <div class="event">${item.event}</div>
+      </div>
+      <div class="tour-btn">
+        <a href="${item.link}" target="_blank">查看官方动态</a>
+      </div>
+    </div>
+    `;
+  });
+
+  list.innerHTML = html;
+}
+
+// 页面加载 + 定时刷新（修复定时器问题）
+window.onload = function () {
+  renderTour();
+  
+  // 只保留一个定时器，避免重复创建
+  if (window.tourTimer) clearInterval(window.tourTimer);
+  window.tourTimer = setInterval(renderTour, 30000);
+}

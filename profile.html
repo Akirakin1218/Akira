@@ -9,15 +9,17 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     html, body {
       width: 100%;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
     body {
       background: #fafafa;
       color: #222;
+      line-height: 1.6;
     }
     .nav {
       max-width: 1100px;
@@ -31,12 +33,17 @@
       font-size: 20px;
       font-weight: 600;
       letter-spacing: 1px;
+      color: #111;
     }
     .nav-menu a {
       margin-left: 30px;
-      color: #333;
+      color: #555;
       text-decoration: none;
       font-size: 15px;
+      transition: all 0.25s ease;
+    }
+    .nav-menu a:hover {
+      color: #000;
     }
     .nav-menu a.active {
       font-weight: bold;
@@ -53,21 +60,27 @@
       background: #ffffff;
       border-radius: 20px;
       padding: 50px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 20px rgba(0,0,0,0.06);
       display: flex;
       gap: 50px;
       align-items: flex-start;
+      transition: all 0.3s ease;
+    }
+    .profile-card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
     .avatar img {
       width: 190px;
       height: 190px;
-      border-radius: 14px;
+      border-radius: 16px;
       object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .name-title {
-      font-size: 30px;
-      font-weight: 600;
+      font-size: 32px;
+      font-weight: 700;
       margin-bottom: 12px;
+      color: #111;
     }
     .tag-group {
       display: flex;
@@ -76,24 +89,22 @@
       flex-wrap: wrap;
     }
     .tag-group span {
-      background: #f3f3f3;
-      padding: 6px 14px;
+      background: #f5f5f7;
+      padding: 7px 15px;
       border-radius: 999px;
       font-size: 13px;
-      color: #444;
-    }
-    .bio-text {
-      color: #555;
-      line-height: 1.9;
-      margin-bottom: 30px;
-      max-width: 650px;
+      color: #333;
+      font-weight: 500;
     }
     .info-list {
       margin: 20px 0;
       line-height: 2;
       color: #444;
+      font-size: 15px;
     }
-
+    .info-list p {
+      margin-bottom: 4px;
+    }
     .experience-title {
       font-size: 18px;
       font-weight: 600;
@@ -103,32 +114,65 @@
     .experience-list {
       line-height: 2.1;
       color: #444;
-      padding-left: 2px;
+      padding-left: 0;
+      font-size: 15px;
     }
     .experience-list li {
       list-style: none;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 14px;
+    }
+    .experience-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #111;
+      font-weight: bold;
     }
     .experience-list strong {
       color: #111;
       font-weight: 600;
+      display: inline-block;
+      min-width: 70px;
     }
-
+    .bio-text {
+      color: #555;
+      line-height: 1.9;
+      margin: 25px 0;
+      max-width: 680px;
+      font-size: 15px;
+      text-align: justify;
+    }
+    .quote {
+      margin: 30px 0;
+      padding: 18px 22px;
+      background: #f9f9fb;
+      border-left: 3px solid #222;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #333;
+      font-style: italic;
+    }
+    .link-group {
+      margin-top: 10px;
+    }
     .link-group a {
+      display: inline-block;
       margin-right: 25px;
       color: #222;
       text-decoration: none;
       font-size: 15px;
-      transition: 0.2s;
+      font-weight: 500;
+      transition: 0.25s ease;
+      padding: 4px 0;
     }
     .link-group a:hover {
       color: #000;
-      font-weight: 500;
+      transform: translateY(-1px);
     }
 
-    /* ====================== */
-    /* 手机自适应优化 */
-    /* ====================== */
+    /* 手机自适应 */
     @media (max-width: 768px) {
       .nav {
         flex-direction: column;
@@ -199,13 +243,15 @@
           <span>说唱歌手</span>
           <span>词曲创作</span>
           <span>INTO1前成员</span>
+          <span>AKOOLMAN厂牌主理人</span>
         </div>
         <div class="info-list">
           <p>本名：刘彰</p>
           <p>艺名：AK刘彰</p>
           <p>出生日期：1999年12月18日</p>
-          <p>职业：歌手、词曲作者、说唱艺人</p>
-          <p>代表作：反路、峰顶、致命爱人、果实、Surprising Click</p>
+          <p>毕业院校：纽约大学数学与经济系</p>
+          <p>个人厂牌：AKOOLMAN（与88rising联合共创）</p>
+          <p>代表作：致命爱人、荒唐、ALOHA、Back Off、峰顶、Summer Summer</p>
         </div>
 
         <div class="experience-title">个人经历</div>
@@ -213,16 +259,24 @@
           <li><strong>2020年</strong> 开始独立发布原创说唱作品，正式进入音乐行业</li>
           <li><strong>2021年</strong> 参加《创造营2021》，以INTO1成员身份正式出道</li>
           <li><strong>2021–2023年</strong> 随组合发行多张专辑，参与多场全国巡演及综艺录制</li>
-          <li><strong>2023年</strong> 组合解散，正式开启个人音乐事业，专注原创创作</li>
-          <li><strong>2024–2025年</strong> 发行《致命爱人》《果实》等个人代表作，举办全国巡演</li>
-          <li><strong>2024年</strong> 为《时光代理人》等官方IP演唱主题曲，收获广泛好评</li>
+          <li><strong>2023年</strong> 组合解散，回归原创音乐人身份</li>
+          <li><strong>2023年6月</strong> 发行EP《巴士站》，开启同名全球14站巡演，观演人数超15000</li>
+          <li><strong>2024年初</strong> 举办「漂流瓶的故事」专场演出，线下人气口碑双高</li>
+          <li><strong>2024年夏</strong> 以特邀音乐大使加盟「时光代理人LIVE」全国巡演，场场爆满</li>
+          <li><strong>2024年底</strong> 纽约大学全A提前毕业回国，推出EP《Better Version of Me》</li>
+          <li><strong>2025年底</strong> 发行EP《致命爱人》，开启同名全国巡演，票房口碑双丰收</li>
         </ul>
 
-        <div class="bio-text" style="margin-top:20px;">
-          AK刘彰，新生代实力派原创音乐人，以极具态度的歌词、清晰的说唱风格与细腻的情感表达著称。
-          擅长词曲创作，音乐兼具思想性与感染力，作品多聚焦成长、生活、自我与世界的观察。
-          曾为限定男团INTO1成员，团体结束后专注个人音乐事业，持续发行高质量原创单曲、EP，
-          并开展全国巡演、音乐节演出，是当下华语乐坛极具潜力的年轻唱作人。
+        <div class="bio-text">
+          AK刘彰，新生代实力派原创音乐人，与人气国漫IP《时光代理人》合作产出OST及推广曲，单曲全球播放量超1700万次。热爱音乐创作，追求自我表达，是发光发热的青年唱作人代表之一。
+          <br><br>
+          从男团毕业后回归原创音乐人身份，与88rising联合共创个人厂牌AKOOLMAN。惊艳蜕变的作品给听众留下耳目一新的印象，极具辨识度的歌曲风格为他带来了大量忠实追随者。
+          <br><br>
+          2024年末，全A提前毕业于纽约大学数学与经济系，他性格里既有少年独有的热血中二，又藏着远超同龄人的坚毅果敢。始终保持赤诚与冲劲，敢闯敢拼、清醒坚定，在热爱的道路上一路沉淀成长，温柔又有力量。
+        </div>
+
+        <div class="quote">
+          AK刘彰：“音乐替我说话”
         </div>
 
         <div class="link-group">
